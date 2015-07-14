@@ -1,22 +1,26 @@
 {
-  "name": "video-scroller",
-  "version": "1.1.1",
-  "description": "Scrubbs html5 video based on scroll position with easing",
-  "main": "dist/video-scroller.min.js",
+  "name": "strategysearch.video-scroller",
+  "version": "0.0.0",
+  "description": "jQuery wrapper for the video-scroller package",
+  "main": "dist/jquery.ss.video-scroller.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/finnursig/VideoScroller.git"
+    "url": "https://github.com/rdennis/jquery.video-scroller"
   },
   "keywords": [
     "video",
     "scroll",
     "scrubbing"
   ],
-  "author": "Finnur Sigurðsson <finnursigu@gmail.com> (http://finnursig.com)",
+  "author": "Robert Dennis <rdennis.dev@gmail.com>",
   "license": "MIT",
+  "dependencies": {
+    "video-scroller": "*",
+    "jquery": "*"
+  },
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-babel": "^4.0.0",
