@@ -63,17 +63,14 @@
 <div id="videoContainer" class="video-container">
     <!--<video data-src="Phone1_60fps.mp4" class="foo bar"></video>-->
     <!--<video data-src="Phone1_1288.mp4" class="foo bar"></video>-->
-    <video data-src="iphone6.min.mp4" class="foo bar"></video>
+    <video data-src="iphone6.min.mp4" class="foo bar" data-vs-settings='{ "debug": true, "invert": true }'></video>
 </div>
 
-<script src="../dist/video-scroller.min.js"></script>
+<script src="../node_modules/video-scroller/dist/video-scroller.min.js"></script>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../dist/jquery.video-scroller.js"></script>
 <script>
-    var videoContainerEl = document.getElementById('videoContainer');
-
-    new VideoScroller({
-        el: videoContainerEl.getElementsByTagName('video')[0],
-        debug: true
-    });
+    $('video').videoScroller();
 </script>
 
 </body>

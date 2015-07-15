@@ -1,36 +1,32 @@
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
-var babel = require('gulp-babel');
+var ts = require('gulp-typescript');
 var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
-var umd = require('gulp-umd');
 
 // var packageInfo = require('./package.json');
 
 var i = 0;
 
-gulp.task('script', function(){
-    return gulp.src([
-		'src/EasingFunctions.js',
-		'src/VideoScroller.js'
-	])
-        .pipe(plumber())
-        .pipe(babel())
-        .pipe(concat('video-scroller.min.js'))
-		.pipe(umd({
-			exports: function(file) {
-				return 'VideoScroller';
-			},
-			namespace: function(file) {
-				return 'VideoScroller';
-			}
+gulp.task('ts', function(){
+	return gulp.src('src/*.ts')
+		.pipe(plumber())
+		.pipe(ts({
+			declarationFiles: false
 		}))
-		.pipe(uglify())
+		//.pipe(uglify())
+		.pipe(gulp.dest('dist/'));
+});
+
+gulp.task('script', function(){
+    return gulp.src('src/*.js')
+        .pipe(plumber())
+		// .pipe(uglify())
         .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('watch', function(){
     gulp.watch('src/**/*.js', ['script']);
+	gulp.watch('src/**/*.ts', ['ts']);
 });
 
-gulp.task('default', ['script', 'watch']);
+gulp.task('default', ['ts', 'script', 'watch']);
